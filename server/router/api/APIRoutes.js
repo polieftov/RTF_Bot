@@ -1,4 +1,4 @@
-const client = require('./db')
+const client = require('../database/db')
 
 getQuestionById = (req, res) => {
     client.query('select * from questions where id=$1', [req.params.id]).then(queryRes => {
