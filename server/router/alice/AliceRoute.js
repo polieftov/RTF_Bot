@@ -42,6 +42,9 @@ const aliceRoute = async (req, res) => {
         let userAnswer = request.request.command //2
         console.log('userAnswer: ' + JSON.stringify(userAnswer))
 
+        if (userAnswer === 'помощь')
+            return helpAnswer(res, response)
+
         userAnswer = '%' + userAnswer + '%'
 
         client.query('select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text) like $2', [userData.id, userAnswer])//3 [ид последнего вопроса, текст ответа])
@@ -71,6 +74,21 @@ const aliceRoute = async (req, res) => {
         //4 кэшируем новый последний вопрос к пользователю
         //5 отправляем пользователю response
     }
+}
+
+function helpAnswer(res, response) {
+    console.log
+    client.query('select * from questions where id=25').then(async queryRes => {
+        let result = queryRes.rows[0]
+        console.log('QUERY RESULT: ' + JSON.stringify(result))
+
+        response.session_state.value = JSON.stringify(result)
+
+        let buttons = await createButtons(result)
+
+        return sendResponse(res, response, result.text, buttons, result.is_dialog_end)
+
+    })
 }
 
 //если что-то пошло не так идем отправляем сообщение что "это не моя специализация..."
@@ -104,6 +122,8 @@ function sendResponse(res, response, text, buttons, isDialogEnd) {
 function createButtons(lastAnswer) {
     return new Promise(function (resolve, reject) {
         let buttons = []
+        if (lastAnswer.id !== 1)
+            buttons.push({title: 'помощь', hide: true})
         client.query('select text from answers where parent=$1', [lastAnswer.id]).then(queryRes => {
 
             console.log('QUERY TO CREATE BTNS: '+'select text from answers where parent=$1, [lastAnswer.id]')
