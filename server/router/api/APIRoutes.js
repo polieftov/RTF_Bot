@@ -11,6 +11,17 @@ getQuestionById = (req, res) => {
     })
 }
 
+getAnswerById = (req, res) => {
+    client.query('select * from answers where id=$1', [req.params.id]).then(queryRes => {
+        let result = queryRes.rows[0]
+        if (!result)
+            return res.status(404).json({ success: false, error: 'Answer not found' })
+        return res.status(200).json({ success: true, data: result })
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
 updateQuestionById = (req, res) => {//обновление возвращает измененный объект
     client.query('update questions set text=$1 where id=$2 returning id, text', [req.params.text, req.params.id]).then(queryRes => {
         let result = queryRes.rows[0]
