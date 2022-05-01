@@ -1,4 +1,4 @@
-import {DialogNode} from "./DialogNode";
+import {DialogTreeNode} from "./DialogTreeNode";
 
 import('./TreeStyles.scss')
 
@@ -8,7 +8,7 @@ export function DialogTree(params) {
             <ul className="tree">
 
                 <li>
-                    <DialogNode type={'Приветствие'} text={'Hello u'}/>
+                    <DialogTreeNode type={'Приветствие'} text={'Hello u'}/>
                 </li>
                 <ul>
                     <li>

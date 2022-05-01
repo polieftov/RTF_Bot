@@ -1,4 +1,4 @@
-import {NodeDialog} from "./NodeDialog";
+import {EditNodeDialog} from "./EditNodeDialog";
 import {useState} from "react";
 
 import('./TreeStyles.scss')
@@ -9,13 +9,13 @@ import('./TreeStyles.scss')
  *     text - текст сообщения
  * }
  */
-export function DialogNode(item) {
+export function DialogTreeNode(item) {
     const [dialogOpen, setDialogOpen] = useState(false)
 
     return (
         <div className="sticky" onClick={() => setDialogOpen(true)}>
             {item.type}
-            {NodeDialog({isOpen: dialogOpen, setIsDialogOpen: setDialogOpen, item: item})}
+            {EditNodeDialog({isOpen: dialogOpen, setIsDialogOpen: setDialogOpen, item: item})}
         </div>
     )
 }

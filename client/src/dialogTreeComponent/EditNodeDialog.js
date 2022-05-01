@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
  *      text - текст сообщения
  *  }
  *  } */
-export function NodeDialog(params) {
+export function EditNodeDialog(params) {
     const [text, setText] = useState(params.item.text);
 
     function handleTextChange(event) {
