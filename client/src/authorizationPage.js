@@ -20,59 +20,59 @@ export function Authorization() {
     }
 
     return (
-        // <Box>
-        //     <Container component="main" maxWidth="xs">
-        //         <CssBaseline/>
-        //         <Box
-        //             sx={{
-        //                 marginTop: 8,
-        //                 display: 'flex',
-        //                 flexDirection: 'column',
-        //                 alignItems: 'center',
-        //             }}
-        //         >
-        //             <Typography component="h1" variant="h5">
-        //                 Вход
-        //             </Typography>
-        //             <Box component="form" noValidate sx={{mt: 1, boxShadow: 1, p: 3, borderRadius: '16px'}}>
-        //                 <TextField
-        //                     margin="normal"
-        //                     required
-        //                     fullWidth
-        //                     id="login"
-        //                     label="Логин"
-        //                     name="login"
-        //                     autoComplete="username"
-        //                     autoFocus
-        //                 />
-        //                 <TextField
-        //                     margin="normal"
-        //                     required
-        //                     fullWidth
-        //                     name="password"
-        //                     label="Пароль"
-        //                     type="password"
-        //                     id="password"
-        //                     autoComplete="current-password"
-        //                 />
-        //                 <Button
-        //                     type="submit"
-        //                     fullWidth
-        //                     variant="contained"
-        //                     sx={{mt: 3, mb: 2}}
-        //                     onClick={signInClick}
-        //                 >
-        //                     Войти
-        //                 </Button>
-        //                 <Typography align="center">
-        //                     <Link href="/registration">
-        //                         Зарегестрироваться
-        //                     </Link>
-        //                 </Typography>
-        //             </Box>
-        //         </Box>
-        //     </Container>
-        // </Box>
-        <DialogTree/>
+        <Box>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline/>
+                <Box
+                    sx={{
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Typography component="h1" variant="h5">
+                        Вход
+                    </Typography>
+                    <Box component="form" noValidate sx={{mt: 1, boxShadow: 1, p: 3, borderRadius: '16px'}}>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="login"
+                            label="Логин"
+                            name="login"
+                            autoComplete="username"
+                            autoFocus
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Пароль"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{mt: 3, mb: 2}}
+                            onClick={signInClick}
+                        >
+                            Войти
+                        </Button>
+                        <Typography align="center">
+                            <Link href="/registration">
+                                Зарегестрироваться
+                            </Link>
+                        </Typography>
+                    </Box>
+                </Box>
+            </Container>
+        </Box>
+
     )
 }

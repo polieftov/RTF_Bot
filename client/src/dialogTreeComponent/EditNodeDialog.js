@@ -1,5 +1,5 @@
 import {Dialog, DialogContent, DialogTitle, TextField} from "@mui/material";
-import {useState} from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 
 /** params {
@@ -11,15 +11,20 @@ import Button from "@mui/material/Button";
  *  }
  *  } */
 export function EditNodeDialog(params) {
-    const [text, setText] = useState(params.item.text);
+    const { isOpen, setIsOpen, item } = params
+    const [newText, setNewText] = useState(item.text);
+
+    function handleClose() {
+        setIsOpen(false)
+    }
 
     function handleTextChange(event) {
-        setText(event.target.value);
+        setNewText(event.target.value);
     }
 
     return (
-        <Dialog open={params.isOpen} onClose={() => params.setIsDialogOpen(false)}>
-            <DialogTitle>params.item.type</DialogTitle>
+        <Dialog open={isOpen} onClose={handleClose}>
+            <DialogTitle>{item.type}</DialogTitle>
             <DialogContent>
                 <TextField
                     required={true}
@@ -28,7 +33,7 @@ export function EditNodeDialog(params) {
                     type="text"
                     fullWidth
                     onChange={handleTextChange}
-                    defaultValue={params.item.text}
+                    defaultValue={item.text}
                 />
             </DialogContent>
             <Button
@@ -37,7 +42,7 @@ export function EditNodeDialog(params) {
             >
                 Добавить
             </Button>
-            <Button onClick={() => params.setIsDialogOpen(false)}>
+            <Button onClick={handleClose}>
                 Назад
             </Button>
         </Dialog>

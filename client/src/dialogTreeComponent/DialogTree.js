@@ -12,33 +12,33 @@ export function DialogTree(params) {
                 </li>
                 <ul>
                     <li>
-                        <div className="sticky">Завершение диалога</div>
+                        <DialogTreeNode type={'Завершение диалога'} text={'Завершение '}/>
                     </li>
                     <li>
-                        <div className="sticky">Выбор специальности</div>
+                        <DialogTreeNode type={'Выбор специальности'} text={'Выбор'}/>
 
                         <ul>
                             <li>
-                                <div className="sticky">Прикладная информатика</div>
+                                <DialogTreeNode type={'Прикладная информатика'} text={'Прикладная'}/>
                                 <ul>
 
                                     <li>
-                                        <div className="sticky">Выбор информации</div>
+                                        <DialogTreeNode type={'Выбор информации'} text={'информации'}/>
                                         <ul>
                                             <li>
-                                                <div>Условия приема</div>
+                                                <DialogTreeNode type={'Условия приема'} text={'Условия'}/>
                                             </li>
                                             <li>
-                                                <div>Количество мест</div>
+                                                <DialogTreeNode type={'Количество мест'} text={'Количество'}/>
                                             </li>
                                             <li>
-                                                <div>Проходные баллы</div>
+                                                <DialogTreeNode type={'Проходные баллы'} text={'Проходные'}/>
                                             </li>
                                             <li>
-                                                <div>Программа обучения</div>
+                                                <DialogTreeNode type={'Программа обучения'} text={'Программа'}/>
                                             </li>
                                             <li>
-                                                <div>Профессии</div>
+                                                <DialogTreeNode type={'Профессии'} text={'Профессии'}/>
                                             </li>
                                         </ul>
                                     </li>

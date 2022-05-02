@@ -1,5 +1,5 @@
 import {EditNodeDialog} from "./EditNodeDialog";
-import {useState} from "react";
+import React, {useState} from "react";
 
 import('./TreeStyles.scss')
 
@@ -10,12 +10,12 @@ import('./TreeStyles.scss')
  * }
  */
 export function DialogTreeNode(item) {
-    const [dialogOpen, setDialogOpen] = useState(false)
+    const [dialogOpen, setDialogOpen] = useState(false);
 
     return (
-        <div className="sticky" onClick={() => setDialogOpen(true)}>
-            {item.type}
-            {EditNodeDialog({isOpen: dialogOpen, setIsDialogOpen: setDialogOpen, item: item})}
-        </div>
+        <>
+            <div className="sticky" onClick={() => setDialogOpen(true)}>{item.type}</div>
+            <EditNodeDialog isOpen={dialogOpen} setIsOpen={setDialogOpen} item={item}/>
+        </>
     )
 }
