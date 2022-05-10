@@ -17,7 +17,7 @@ $entry-height: 3em; // total hight of entry: card + gap on top
 
 $card-ident: 2em; // card horizontal ident (to nearest connector)
 $card-height: 1.5em;
-$card-width: 15em; // 'auto' is acceptable
+$card-width: 17em; // 'auto' is acceptable
 $card-padding-top: ($card-height - 1em)/2;
 $card-padding-side: $card-padding-top * 2;
 
@@ -96,14 +96,23 @@ body {
     border-radius: 5px;
     border: 1px solid $box-color;
     margin: 0;
-    max-width: $card-width;
-    min-width: $card-width;
+    width: $card-width;
+    //min-width: $card-width;
     padding: $card-padding-top $card-padding-side;
 
     background: $background-color;
     box-shadow: $box-shadow;
     color: $connector-color;
     font-weight: bold;
+  }
+
+  & li .node-with-select {
+    border: 0;
+    padding: 0;
+    max-width: $card-width;
+    min-width: $card-width;
+    overflow-y: hidden;
+    margin: 0;
   }
 
 }

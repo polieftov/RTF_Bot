@@ -28,6 +28,9 @@ export function EditNodeDialog(params) {
             <DialogContent>
                 <TextField
                     required={true}
+                    multiline
+                    sx={{width: 500}}
+                    maxRows={10}
                     margin="normal"
                     autoFocus
                     type="text"
