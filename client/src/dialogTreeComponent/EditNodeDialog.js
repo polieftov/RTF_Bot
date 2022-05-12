@@ -22,6 +22,27 @@ export function EditNodeDialog(params) {
         setNewText(event.target.value);
     }
 
+    async function updateNodeMessage() {
+        if (item.text !== newText) {
+            await fetch(`http://localhost:8000/api/question/${item.id}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({text: newText})
+            }).then(response => {
+                console.log('UPDATE TEXT')
+                console.log(JSON.stringify(newText))
+
+                item.setItem({
+                    type: item.type,
+                    text: newText,
+                    id: item.id,
+                    setItem: item.setItem
+                })
+                return response.json();
+            })
+        }
+    }
+
     return (
         <Dialog open={isOpen} onClose={handleClose}>
             <DialogTitle>{item.type}</DialogTitle>
@@ -39,10 +60,10 @@ export function EditNodeDialog(params) {
                     defaultValue={item.text}
                 />
             </DialogContent>
-            <Button
-                // onClick={() => }
-                disabled={true}
-            >
+            <Button onClick={() => {
+                updateNodeMessage()
+                handleClose()
+            }}>
                 Добавить
             </Button>
             <Button onClick={handleClose}>

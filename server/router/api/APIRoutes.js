@@ -43,8 +43,10 @@ getFaculties = (req, res) => {
 
 getAnswerByFacultyAndMessageType = (req, res) => {
     console.log(req.params)
-  client.query('select * from questions q join faculty f on f.id = q.faculty where f."name" = $1 and q.message_type = $2',
+  client.query('select q.id, q.text, f."name" from questions q join faculty f on f.id = q.faculty where f."name" = $1 and q.message_type = $2',
       [req.params['faculty'], req.params['messageTypeId']]).then(queryRes => {
+      console.log('GET ANSWER BY MESSAGE TYPE AND FACULTY')
+      console.log(queryRes.rows[0])
       return res.status(200).json({ success: true, data: queryRes.rows[0] })
   }).catch(err => {
       console.log(err)
@@ -60,6 +62,21 @@ getAnswerByMessageType = (req, res) => {
     })
 }
 
+updateAnswerMessage = (req, res) => {
+    console.log('UPDATE MSG')
+    console.log(req.body)
+    console.log(req.body.text)
+    console.log(req.params['answerId'])
+    if (!req.body) return res.sendStatus(400)
+
+    client.query('update questions set "text" = $1 where id = $2',
+        [req.body.text, req.params['answerId']]).then(() => {
+        return res.status(200).json({ success: true })
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
 
 
 module.exports = {
@@ -67,5 +84,6 @@ module.exports = {
     updateQuestionById,
     getFaculties,
     getAnswerByFacultyAndMessageType,
-    getAnswerByMessageType
+    getAnswerByMessageType,
+    updateAnswerMessage
 }
