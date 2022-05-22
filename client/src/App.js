@@ -5,6 +5,7 @@ import {Authorization} from "./authorizationPage";
 import {MainPage} from "./MainPage";
 
 function App() {
+    
     return (
         <Router>
             <div>
