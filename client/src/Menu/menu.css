@@ -16,6 +16,7 @@
     height: 100%;
 }
 
+<<<<<<< HEAD
 .menu.active{
     position: fixed;
     width: 100vw;
@@ -40,26 +41,61 @@
     width: 20%;
     height: 100%;
     background-color: whitesmoke;
+=======
+.menu.active {
+    transform: 0;
+    display: inline-block;
+    vertical-align: center;
+    height: 100%;
+}
+
+/*.blur {*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    left: 30%;*/
+/*    backdrop-filter: blur(2px);*/
+/*    position: absolute;*/
+/*}*/
+
+.menu_content {
+    height: 100%;
+    background-color: black;
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all 1s;
+<<<<<<< HEAD
     z-index: 999999;
+=======
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 }
 
 .menu_header {
     font-size: 2rem;
+<<<<<<< HEAD
     color: black;
     padding: 10px;
     border-bottom: 2px solid #034ac1;
+=======
+    color: white;
+    padding: 10px;
+    border-bottom: 1px solid white;
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
     width: 100%;
     text-align: center;
 }
 
 .side-menu-item {
+<<<<<<< HEAD
     color: black;
     text-decoration: none;
     font-size: 1.5rem;
+=======
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 }
 
 .side-menu-item {
@@ -75,11 +111,19 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 ul li a {
    color: black;
    text-decoration: none;
    font-size: 1.2rem;
 }
+=======
+/*ul li a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    font-size: 1.2rem;*/
+/*}*/
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 
 /*ul li {*/
 /*    display: flex;*/
@@ -95,7 +139,11 @@ ul li a {
 /*}*/
 
 .material-symbols-rounded {
+<<<<<<< HEAD
     color: black;
+=======
+    color: white;
+>>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
     margin-left: 10px;
 }
 

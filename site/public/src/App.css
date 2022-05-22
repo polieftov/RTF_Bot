@@ -7,71 +7,19 @@
   pointer-events: none;
 } */
 
-.App {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  height: 100vh;
-}
-
-.SideMenu {
-<<<<<<< HEAD
-  height: 60px;
-}
-
-.DialogTree {
-  top: 10%;
-  left: 22%;
-  position: relative;
-  padding: 50px;
-  display: inline-block;
-  vertical-align: right;
-  z-index: 100;
-}
-
-nav {
-  height: 60px;
-  width: 100%;
-  background-color: #034ac1;
-  position: fixed;
-  z-index: 999999;
-=======
-
-}
-
-.DialogTree {
-  display: inline-block;
-  vertical-align: right;
-}
-
 nav {
   height: 50;
-  width: 100px;
+  width: 100%;
   background-color: gray;
   position: fixed;
   z-index: 50;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
   display: flex;
   align-items: center;
 }
 
-<<<<<<< HEAD
-.AppLogo {
-  right: 1%;
-  display: flex;
-  position: fixed;
-}
-
-/* main {
-  padding: 50px;
-} */
-=======
 main {
   padding: 50px;
 }
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 
 p {
   margin: 20px;
