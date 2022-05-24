@@ -77,7 +77,14 @@ updateAnswerMessage = (req, res) => {
     })
 }
 
-
+getStatistics = (req, res) => {
+    console.log('GET STATISTICS')
+    client.query('select st.id, q."text" alice_answer, q2."text" alice_question, st.user_answer, st.answer_timestamp, q.message_type from statistic st join questions q on q.id = st.alice_answer join questions q2 on q2.id=st.alice_question').then(queryRes => {
+        return res.status(200).json({ success: true, data: queryRes.rows })
+    }).catch(err => {
+        console.log(err)
+    })
+}
 
 module.exports = {
     getQuestionById,
@@ -85,5 +92,6 @@ module.exports = {
     getFaculties,
     getAnswerByFacultyAndMessageType,
     getAnswerByMessageType,
-    updateAnswerMessage
+    updateAnswerMessage,
+    getStatistics
 }

@@ -17,17 +17,23 @@
 }
 
 .SideMenu {
-<<<<<<< HEAD
   height: 60px;
 }
 
-.DialogTree {
-  top: 10%;
+.stat_page {
   left: 22%;
   position: relative;
   padding: 50px;
   display: inline-block;
-  vertical-align: right;
+  max-width: 70%;
+  z-index: 100;
+}
+
+.DialogTree {
+  left: 22%;
+  padding: 50px;
+  margin-left: 22%;
+  display: inline-block;
   z-index: 100;
 }
 
@@ -37,41 +43,27 @@ nav {
   background-color: #034ac1;
   position: fixed;
   z-index: 999999;
-=======
-
-}
-
-.DialogTree {
-  display: inline-block;
-  vertical-align: right;
 }
 
 nav {
-  height: 50;
+  height: 50px;
   width: 100px;
   background-color: gray;
   position: fixed;
   z-index: 50;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
   display: flex;
   align-items: center;
 }
 
-<<<<<<< HEAD
 .AppLogo {
   right: 1%;
   display: flex;
   position: fixed;
 }
 
-/* main {
-  padding: 50px;
-} */
-=======
 main {
   padding: 50px;
 }
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 
 p {
   margin: 20px;
@@ -111,7 +103,7 @@ p {
   background-color: black;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
+ @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -139,4 +131,4 @@ p {
   to {
     transform: rotate(360deg);
   }
-} */
+}

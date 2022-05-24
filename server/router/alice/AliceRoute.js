@@ -1,5 +1,7 @@
 const client = require('../database/db')
 
+let botAnswerIfSmthWrongId = 5
+
 const aliceRoute = async (req, res) => {
     console.log('START CREATING RESPONSE')
     let request = req.body
@@ -18,6 +20,7 @@ const aliceRoute = async (req, res) => {
             value: {}
         }
     }
+
 
     if (request.session.new) {
         client.query('select * from questions where id=1').then(async queryRes => {//запрос на получение первого вопроса к пользователю (приветствие)
@@ -45,16 +48,16 @@ const aliceRoute = async (req, res) => {
         if (userAnswer === 'помощь')
             return helpAnswer(res, response)
 
-        userAnswer = '%' + userAnswer + '%'
+        let userAnswerLike = '%' + userAnswer + '%'
 
-        client.query('select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text) like $2', [userData.id, userAnswer])//3 [ид последнего вопроса, текст ответа])
+        client.query('select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text) like $2', [userData.id, userAnswerLike])//3 [ид последнего вопроса, текст ответа])
             .then(async queryRes => {
+                console.log('QUERY: ' + 'select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text)=$2', [userData.id, userAnswerLike])
 
                 if (!queryRes) {
-                    console.log('QUERY FAILED: ' + 'select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text)=$2, [userData.id, userAnswer]')
+                    console.log('QUERY FAILED: ' + 'select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text)=$2, [userData.id, userAnswerLike]')
                     return questionIfSomethingWrong(res, response)
                 }
-                console.log('QUERY: ' + 'select q.id, q.text, q.is_dialog_end from questions q join answers answ on q.id=answ.child where answ.parent=$1 and lower(answ.text)=$2', [userData.id, userAnswer])
 
                 let result = queryRes.rows[0]
                 console.log('QUERY RESULT: ' + JSON.stringify(result))
@@ -63,9 +66,19 @@ const aliceRoute = async (req, res) => {
 
                 let buttons = await createButtons(result)
 
+                //Записываем ответ пользователя и ответ бота
+                client.query('INSERT INTO public.statistic (user_answer, alice_answer, answer_timestamp, alice_question) VALUES ($1, $2, $3, $4);',
+                    [userAnswer, result.id, new Date(), userData.id])
+
+
                 return sendResponse(res, response, result.text, buttons, result.is_dialog_end)//5
             }).catch(err => {
             console.log('ERROR :' + err)
+
+            //Записываем ответ пользователя и ответ бота
+            client.query('INSERT INTO public.statistic (user_answer, alice_answer, answer_timestamp, alice_question) VALUES ($1, $2, $3, $4);',
+                [userAnswer, botAnswerIfSmthWrongId, new Date(), userData.id])
+
             return questionIfSomethingWrong(res, response)
         })
         //1 узнаем наш последний вопрос к пользователю из кэша (сначала потестим получение/отправку данных сессии через session_state)
@@ -95,7 +108,7 @@ function helpAnswer(res, response) {
 function questionIfSomethingWrong(res, response) {
     console.log('SOMETHING WRONG')
     console.log('QUERY: select * from questions where id=5')
-    client.query('select * from questions where id=5').then(async queryRes => {
+    client.query('select * from questions where id=$1', [botAnswerIfSmthWrongId]).then(async queryRes => {
         let result = queryRes.rows[0]
         console.log('QUERY RESULT: ' + JSON.stringify(result))
 

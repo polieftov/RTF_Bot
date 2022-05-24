@@ -1,14 +1,9 @@
 import React from "react";
 import './menu.css'
 
-const Menu = ({header, items, active, setActive}) => {
+const Menu = ({header, items}) => {
     return (
-<<<<<<< HEAD
-        <div className={active ? 'menu active' : 'menu'} onClick={() => setActive(false)}>
-=======
-        <div className={active ? 'menu active' : 'Menu'} onClick={() => setActive(false)}>
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
-            <div className="blur"></div>
+        <div className={'menu active'}>
             <div className="menu_content" onClick={e => e.stopPropagation()}>
                 <div className="menu_header">{header}</div>
                 <ul className="menu-list">
@@ -17,7 +12,7 @@ const Menu = ({header, items, active, setActive}) => {
                             <a href={item.href}>{item.value}</a>
                             <span class="material-symbols-rounded">{item.icon}</span>
                         </li>
-                        )}
+                    )}
                 </ul>
             </div>
         </div>

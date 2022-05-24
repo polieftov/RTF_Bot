@@ -7,6 +7,7 @@ const router = express.Router()
 router.post('/', aliceRoute)
 
 router.get('/api/faculties', apiRoutes.getFaculties)
+router.get('/api/statistics', apiRoutes.getStatistics)
 router.get('/api/question/:faculty/:messageTypeId', apiRoutes.getAnswerByFacultyAndMessageType)
 router.get('/api/question/:messageTypeId', apiRoutes.getAnswerByMessageType)
 router.post('/api/question/:answerId', apiRoutes.updateAnswerMessage)

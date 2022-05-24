@@ -76,7 +76,6 @@ export function DialogTree(params) {
         if (faculty)
             return (
                 <ul>
-
                     <li>
                         <DialogTreeNode type={'Выбор информации'} text={infoChoose.text} id={infoChoose.id}
                                         setItem={setInfoChoose}/>
