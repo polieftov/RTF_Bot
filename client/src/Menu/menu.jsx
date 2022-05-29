@@ -1,17 +1,17 @@
 import React from "react";
 import './menu.css'
+import { IconButton } from "@mui/material";
+import { Button } from "@mui/material";
+import { SvgIcon } from "@mui/material";
+import { MainPage } from "../MainPage";
 
-const Menu = ({header, items, active, setActive}) => {
+const tbItems = [{value: "Выход", icon: "logout"}]
+const Menu = ({header, items}) => {
     return (
-<<<<<<< HEAD
-        <div className={active ? 'menu active' : 'menu'} onClick={() => setActive(false)}>
-=======
-        <div className={active ? 'menu active' : 'Menu'} onClick={() => setActive(false)}>
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
-            <div className="blur"></div>
             <div className="menu_content" onClick={e => e.stopPropagation()}>
                 <div className="menu_header">{header}</div>
                 <ul className="menu-list">
+                <img src="icon.svg" className="AppLogo"></img>
                     {items.map(item =>
                         <li className="side-menu-item">
                             <a href={item.href}>{item.value}</a>
@@ -19,8 +19,21 @@ const Menu = ({header, items, active, setActive}) => {
                         </li>
                         )}
                 </ul>
+                <div className="ToolBar">
+                    <div class="mdc-touch-target-wrapper">
+                        <button id="logoutBtn">
+                            
+                            {tbItems.map(item=>
+                                <ul className="toolBar-items-list">
+                                    <a href={item.href}>{item.value}</a>
+                                    <span class="material-symbols-rounded">{item.icon}</span>
+                                </ul>
+                            )}
+                           
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
     );
 };
 

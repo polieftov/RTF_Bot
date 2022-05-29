@@ -1,4 +1,4 @@
-.menu {
+/* .menu {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -6,42 +6,25 @@
     left: 0;
     transform: translateX(-130%);
     transition: all 1s;
-}
+} */
 
 .Menu {
     width: 300px;
-
     display: inline-block;
     vertical-align: middle;
     height: 100%;
 }
 
-<<<<<<< HEAD
 .menu.active{
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top: 50px;
     left: 0;
     transform: translateX(0);
     transition: all 0.4s;
 }
 
-.blur {
-   width: 100vw;
-   height: 100vh;
-   left: 30%;
-   backdrop-filter: blur(2px);
-   position: absolute;
- }
 
-.menu_content {
-    font-size: 1.5rem;
-    /* border: solid #034ac1; */
-    width: 20%;
-    height: 100%;
-    background-color: whitesmoke;
-=======
 .menu.active {
     transform: 0;
     display: inline-block;
@@ -58,44 +41,38 @@
 /*}*/
 
 .menu_content {
+    /* border-radius: 0% 30px 30px 0%; */
+    width: 15%;
     height: 100%;
-    background-color: black;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
+    background-color: #1d2cb7de;
+    /* background-color: #091583de; */
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all 1s;
-<<<<<<< HEAD
-    z-index: 999999;
-=======
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 }
 
 .menu_header {
     font-size: 2rem;
-<<<<<<< HEAD
-    color: black;
+    font: small-caps 24px/1 sans-serif;
+    font-size: 2.4rem;
+    /* color: black;
     padding: 10px;
-    border-bottom: 2px solid #034ac1;
-=======
+    border-bottom: 2px solid #034ac1; */
     color: white;
     padding: 10px;
     border-bottom: 1px solid white;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
     width: 100%;
     text-align: center;
 }
 
 .side-menu-item {
-<<<<<<< HEAD
-    color: black;
-    text-decoration: none;
-    font-size: 1.5rem;
-=======
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
+    /* color: black;
+    text-decoration: none;
+    font-size: 1.5rem; */
 }
 
 .side-menu-item {
@@ -105,25 +82,65 @@
 }
 
 .menu-list {
-    text-align: center;
+    /* border-bottom: 2px solid white; */
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
-<<<<<<< HEAD
-ul li a {
-   color: black;
-   text-decoration: none;
-   font-size: 1.2rem;
+.toolBar-items-list {
+    font-size: 1.3rem;
+    text-align: center;
 }
-=======
+
+.ToolBar {
+    height: 70%;
+    display: flex;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid white;
+}
+
+#logoutBtn {
+    border: 1px;
+    background-color: #3a47c0;
+    /* background-color: #293393; */
+    color: white;
+    font: small-caps 24px/1 sans-serif;
+    position: relative;
+    width: 100%;
+}
+
+a {
+    color: white;
+}
+
+
+.AppLogo {
+    bottom: 2%;
+    /* right: 1%; */
+    display: flex;
+    position: absolute;
+    /* position: fixed; */
+    height: 10%;
+    width: 10%;
+  }
+
+ul li a {
+    font: small-caps 24px/1 sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+
+/*=======*/
 /*ul li a {*/
 /*    color: white;*/
 /*    text-decoration: none;*/
 /*    font-size: 1.2rem;*/
 /*}*/
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
 
 /*ul li {*/
 /*    display: flex;*/
@@ -139,13 +156,15 @@ ul li a {
 /*}*/
 
 .material-symbols-rounded {
-<<<<<<< HEAD
-    color: black;
-=======
+    font-size: 1.3;
     color: white;
->>>>>>> d7126279bb8dd3176d1b255167b07323d1bb9a5c
     margin-left: 10px;
 }
+
+.mdc-touch-target-wrapper {
+    width: 100%;
+}
+
 
 @media screen and (max-width: 768px) {
     .menu_content {
