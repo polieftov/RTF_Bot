@@ -25,7 +25,7 @@ export function DialogTree(params) {
 
     //Получение ответов которые зависят от выбранной специальности
     async function getAnswerByFacultyAndMessageType(messageTypeId) {
-        return await fetch(`http://localhost:8000/api/question/${faculty}/${messageTypeId}`)
+        return await fetch(`http://localhost:${process.env.PORT || 8000}/api/question/${faculty}/${messageTypeId}`)
             .then(response => {
                 return response.json();
             })
@@ -33,14 +33,14 @@ export function DialogTree(params) {
 
     //Получение ответов которые НЕ зависят от выбранной специальности
     async function getAnswerByMessageType(messageTypeId) {
-        return await fetch(`http://localhost:8000/api/question/${messageTypeId}`)
+        return await fetch(`http://localhost:${process.env.PORT || 8000}/api/question/${messageTypeId}`)
             .then(response => {
                 return response.json();
             })
     }
 
     async function getFaculties() {
-        await fetch(`http://localhost:8000/api/faculties`)
+        await fetch(`http://localhost:${process.env.PORT || 8000}/api/faculties`)
             .then(response => {
                 return response.json();
             })

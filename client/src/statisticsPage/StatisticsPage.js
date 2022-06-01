@@ -15,7 +15,7 @@ export function StatisticsPage(props) {
 
     //Получение всех записей statistics
     async function getStatistics() {
-        return await fetch(`http://localhost:8000/api/statistics`)
+        return await fetch(`http://localhost:${process.env.PORT || 8000}/api/statistics`)
             .then(response => {
                 return response.json();
             }).then(result => {

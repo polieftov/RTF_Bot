@@ -24,7 +24,7 @@ export function EditNodeDialog(params) {
 
     async function updateNodeMessage() {
         if (item.text !== newText) {
-            await fetch(`http://localhost:8000/api/question/${item.id}`, {
+            await fetch(`http://localhost:${process.env.PORT || 8000}/api/question/${item.id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({text: newText})
