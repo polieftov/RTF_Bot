@@ -17,9 +17,8 @@
 
 .menu.active{
     position: fixed;
-    width: 120vw;
+    width: 20vw;
     height: 100vh;
-    top: 25px;
     left: 0;
     transform: translateX(0);
     transition: all 0.4s;
@@ -29,7 +28,6 @@
 
 .menu_content {
     font-size: 1.5rem;
-    width: 20%;
     height: 100%;
     background-color: whitesmoke;
 }
@@ -37,7 +35,6 @@
 .menu.active {
     display: inline-block;
     vertical-align: center;
-    height: 100%;
 }
 
 /*.blur {*/
@@ -49,10 +46,7 @@
 /*}*/
 
 .menu_content {
-    /* border-radius: 0% 30px 30px 0%; */
-    width: 15%;
-    height: 100%;
-    background-color: #1d2cb7de;
+    background-color: rgb(0, 40, 71);
     /* background-color: #091583de; */
     display: flex;
     flex-direction: column;
@@ -62,8 +56,8 @@
 }
 
 .menu_header {
-    font-size: 2rem;
-    font: small-caps 24px/1 sans-serif;
+    /*font-size: 2rem;*/
+    /*font: small-caps 24px/1 sans-serif;*/
     font-size: 2.4rem;
     /* color: black;
     color: black;
@@ -74,7 +68,7 @@
     padding: 10px;
     border-bottom: 1px solid white;
     width: 100%;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .side-menu-item {
@@ -105,41 +99,42 @@
 
 .toolBar-items-list {
     font-size: 1.3rem;
-    text-align: center;
+    text-align: end;
+    margin-right: 35px;
 }
 
 .ToolBar {
-    height: 70%;
     display: flex;
-    width: 100%;
-    position: relative;
-    border-top: 1px solid white;
+    position: absolute;
+    background-color: lightgray;
+    /*border-top: 1px solid white;*/
 }
 
 #logoutBtn {
     border: 1px;
-    background-color: #3a47c0;
+    /*background-color: #3a47c0;*/
     /* background-color: #293393; */
-    color: white;
+    color: black;
     font: small-caps 24px/1 sans-serif;
     position: relative;
     width: 100%;
 }
 
 a {
-    color: white;
+    color: black;
 }
 
 
 .AppLogo {
-    bottom: 2%;
-    /* right: 1%; */
-    display: flex;
-    position: absolute;
-    /* position: fixed; */
-    height: 10%;
+    right: 1%;
+    /*display: flex;*/
+    /*position: fixed;*/
     width: 10%;
-  }
+    margin-right: 45px;
+    margin-left: 10px;
+    /*background-color: white;*/
+
+}
 
 ul li a {
     font: small-caps 24px/1 sans-serif;
@@ -168,15 +163,20 @@ ul li a {
 /*    flex-direction: column;*/
 /*    align-items: center;*/
 /*}*/
-
-.material-symbols-rounded {
-    font-size: 1.3;
+.material-symbols-rounded-menu-items {
     color: white;
     margin-left: 10px;
 }
 
+
+.material-symbols-rounded {
+    font-size: 1.3;
+    margin-left: 10px;
+}
+
 .mdc-touch-target-wrapper {
-    width: 100%;
+    width: 80vw;
+    margin-left: 20vw;
 }
 
 

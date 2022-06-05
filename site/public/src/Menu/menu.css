@@ -58,11 +58,6 @@ ul {
     align-items: center;
 }
 
-.material-symbols-rounded {
-    color: white;
-    margin-left: 10px;
-}
-
 @media screen and (max-width: 768px) {
     .menu_content {
         width: 100%;
