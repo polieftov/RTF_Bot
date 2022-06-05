@@ -1,18 +1,12 @@
-/* .App {
-  text-align: center;
+body {
+  overflow-x: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
 
 .App {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: flex-start;
-  height: 100vh;
 }
 
 .SideMenu {
@@ -24,7 +18,7 @@
   position: relative;
   padding: 50px;
   display: inline-block;
-  max-width: 70%;
+  max-width: 75%;
   z-index: 100;
 }
 

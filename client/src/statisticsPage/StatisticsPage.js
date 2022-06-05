@@ -48,7 +48,7 @@ export function StatisticsPage(props) {
 
     //форматирует дату для вывода
     function formatDateTime(date) {
-        return date.replace(/T/, ' ').replace(/\..+/, '')
+        return date.replace(/T/, ' ').replace(/\..+/, '').replace('-', '.').replace('-', '.')
     }
 
     //понял ли бот сообщение пользователя //10 означает что бот не понял
