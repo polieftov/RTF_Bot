@@ -2,6 +2,17 @@ const client = require('../database/db')
 
 let botAnswerIfSmthWrongId = 5
 
+function convertAnswer(answer) {
+    let positiveAnswerSynonym = ['да', 'давай', 'конечно', 'расскажи', 'хочу']
+    if (positiveAnswerSynonym.includes(answer.toLowerCase()))
+        return 'да'
+
+    if (answer.toLowerCase() === 'условия приема')
+        return 'Условия приёма'
+
+    return answer
+}
+
 const aliceRoute = async (req, res) => {
     console.log('START CREATING RESPONSE')
     let request = req.body
@@ -42,7 +53,7 @@ const aliceRoute = async (req, res) => {
         let userData = JSON.parse(request.state.session.value)
         console.log('userData: ' + JSON.stringify(userData))
 
-        let userAnswer = request.request.command //2
+        let userAnswer = convertAnswer(request.request.command) //2
         console.log('userAnswer: ' + JSON.stringify(userAnswer))
 
         if (userAnswer === 'помощь')
@@ -90,7 +101,7 @@ const aliceRoute = async (req, res) => {
 }
 
 function helpAnswer(res, response) {
-    console.log
+
     client.query('select * from questions where id=25').then(async queryRes => {
         let result = queryRes.rows[0]
         console.log('QUERY RESULT: ' + JSON.stringify(result))
